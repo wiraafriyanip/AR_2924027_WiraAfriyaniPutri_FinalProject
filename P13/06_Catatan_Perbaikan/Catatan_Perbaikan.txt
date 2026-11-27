@@ -1,0 +1,60 @@
+CATATAN PERBAIKAN UTAMA
+Aplikasi Augmented Reality - Bunga Pink Botanical
+Pertemuan 13: Testing, Optimization, Debugging, dan Final Build Candidate
+Perangkat uji: Xiaomi Redmi Note 8 Pro
+
+================================================================================
+No 1
+--------------------------------------------------------------------------------
+Masalah
+  Posisi objek 3D berada di bagian bawah marker, belum di tengah.
+
+Penyebab yang ditemukan
+  Pusat/offset prefab objek belum sejajar dengan pusat marker.
+
+Perbaikan yang dilakukan
+  Atur Position (local) prefab secara bertahap, ubah satu hal lalu uji di HP.
+
+Hasil retest
+  Berhasil: objek berada tepat di atas marker dan tetap menempel saat HP
+  digerakkan. Status LULUS.
+
+================================================================================
+No 2
+--------------------------------------------------------------------------------
+Masalah
+  Scale Up berulang membuat objek memenuhi layar dan muncul bidang putih.
+
+Penyebab yang ditemukan
+  Batas skala maksimum pada script Scale Up/Down belum efektif sehingga
+  objek terus membesar.
+
+Perbaikan yang dilakukan
+  Batasi skala dengan Mathf.Clamp (min dan maks) pada script scale; uji
+  tombol berulang sampai batas.
+
+Hasil retest
+  Berhasil: Scale Up berulang berhenti di batas maksimum, objek tidak
+  memenuhi layar dan bidang putih tidak muncul lagi. Status LULUS.
+
+================================================================================
+No 3
+--------------------------------------------------------------------------------
+Masalah
+  Teks deskripsi (atas) dan petunjuk (bawah) sangat kecil.
+
+Penyebab yang ditemukan
+  Ukuran font teks tersebut terlalu kecil untuk layar perangkat.
+
+Perbaikan yang dilakukan
+  Perbesar ukuran font; cek agar tidak terpotong atau menutupi objek AR.
+
+Hasil retest
+  Berhasil: teks deskripsi dan petunjuk terbaca jelas, tidak terpotong, dan
+  tidak menutupi objek AR. Status LULUS.
+
+================================================================================
+Catatan
+  Audio/animasi, instalasi bersih, buka ulang aplikasi, dan console belum
+  diuji ulang. Uji dahulu pada APK v2 sebelum project dinyatakan siap UAS.
+================================================================================
